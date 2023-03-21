@@ -28,5 +28,7 @@ public class BlockNetworkRequests {
         driver.findElement(By.cssSelector(".add-to-cart")).click();
 
         System.out.println(driver.findElement(By.cssSelector("p")).getText());
+
+        driver.close();
     }
 }
