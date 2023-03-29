@@ -19,9 +19,9 @@ public class FileUpload {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
 
-        HashMap<String,Object> chromePrefs = new HashMap<String, Object>();
-        chromePrefs.put("profile.default_content_settings.popups",0);
-        chromePrefs.put("download.default_directory",downloadDir);
+        HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+        chromePrefs.put("profile.default_content_settings.popups", 0);
+        chromePrefs.put("download.default_directory", downloadDir);
 
         options.setExperimentalOption("prefs", chromePrefs);
         WebDriver driver = new ChromeDriver(options);
@@ -48,9 +48,9 @@ public class FileUpload {
         } else {
             System.out.println("File not downloaded");
         }
-        f.delete();
-
-
+        if (f.delete()) {
+            System.out.println("File Deleted");
+        }
         driver.close();
     }
 }
